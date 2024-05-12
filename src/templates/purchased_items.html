@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchased Items</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Purchased Items</h1>
+        <div class="list-container">
+            <ul>
+                {% for item in purchased_items %}
+                    <li class="list-item">User ID: {{ item.user_id }}, Item ID: {{ item.item_id }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="btn-container">
+            <button class="btn" onclick="window.location.href='/'">Go Back To Menu</button>
+        </div>
+    </div>
+</body>
+</html>

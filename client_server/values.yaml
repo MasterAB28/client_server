@@ -1,0 +1,29 @@
+# Default values for client_erver.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+deployment: client-server-deployment
+app: client-server
+replicaCount: 1
+namespace: client-server
+image:
+  repository: aviadbarel/client-server
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+maxSurge: 25%
+maxUnavailable: 1
+
+
+
+
+service:
+  name: client-server
+  type: NodePort
+  port: 8000
+
+ingress:
+  targetType: instance
+  group: app
+  class: alb
+  host: orders.aviad.click
